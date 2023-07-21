@@ -1,0 +1,116 @@
+#include<stdio.h>
+int main()
+{
+    int n,m,i,j;
+    scanf("%d %d",&n,&m);
+    int a[n][m];
+    int ct[n];
+    int k=0,count;
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=m;j++)
+        {
+            scanf("%d",&a[i][j]);
+        }
+    }
+    for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=m;j++)
+        {
+              count=0;
+            if(a[i][j]==1)
+            {
+                if(a[i-1][j]==1)
+                {
+                    count++;
+                }
+                if(a[i][j+1]==1)
+                {
+                    count++;
+                }
+                if(a[i-1][j-1]==1)
+                {
+                    count++;
+                }
+                if(a[i-1][j]==1)
+                {
+                    count++;
+                }
+                if(a[i-1][j+1]==1)
+                {
+                    count++;
+                }
+                if(a[i+1][j-1]==1)
+                {
+                    count++;
+                }
+                if(a[i+1][j]==1)
+                {
+                    count++;
+                }
+                if(a[i+1][j+1]==1)
+                {
+                    count++;
+                }
+                ct[k]=count;
+                k++;
+            }
+        }
+    }
+    int maxct=ct[0];
+    for(i=1;i<=n;i++)
+    {
+      if(ct[i]>maxct)
+      {
+          maxct=ct[i];
+      }
+    }
+       for(i=1;i<=n;i++)
+    {
+        for(j=1;j<=m;j++)
+        {
+              count=0;
+            if(a[i][j]==1)
+            {
+                if(a[i-1][j]==1)
+                {
+                    count++;
+                }
+                if(a[i][j+1]==1)
+                {
+                    count++;
+                }
+                if(a[i-1][j-1]==1)
+                {
+                    count++;
+                }
+                if(a[i-1][j]==1)
+                {
+                    count++;
+                }
+                if(a[i-1][j+1]==1)
+                {
+                    count++;
+                }
+                if(a[i+1][j-1]==1)
+                {
+                    count++;
+                }
+                if(a[i+1][j]==1)
+                {
+                    count++;
+                }
+                if(a[i+1][j+1]==1)
+                {
+                    count++;
+                }
+            }
+            if(count==maxct)
+            {
+                printf("%d:%d:%d",i,j,maxct);
+                break;
+            }
+        }
+    }
+
+}
